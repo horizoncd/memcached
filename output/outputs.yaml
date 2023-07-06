@@ -1,13 +1,4 @@
-{{ $count := until (int .Values.replicaCount) }}
 {{ $values := .Values }}
-{{ if eq .Values.architecture "high-availability" }}
-{{ range $count }}
-实例-{{ . }}域名: 
-  description: Headless域名，仅支持集群内部访问，直接解析到PodIP，不会经过Service。每个实例域名都会解析到一个对应的Pod。
-  value: "{{ $values.horizon.cluster }}-{{ . }}.{{ $values.env.namespace }}.svc.cluster.local"
-{{ end }}
-{{ else }}
 实例域名: 
   description: 服务域名，仅支持集群内部访问。本地访问请连接hy vpn，并直接使用PodIP。
-  value: "{{ .Values.horizon.cluster }}.{{ .Values.env.namespace }}.svc.cluster.local"
-{{ end }}
+  value: {{ range $i, $e := until (int $values.replicaCount) }}{{- if $i }},{{- end }}{{ include "common.names.fullname" $ }}-{{$i}}.{{ include "common.names.fullname" $ }}.svc.cluster.local{{- end -}}
