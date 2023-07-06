@@ -1,34 +1,20 @@
 {
   "type": "object",
   "required": [
-    "architecture",
     "port",
     "usage"
   ],
   "properties": {
-    "architecture": {
-      "title": "架构",
-      "type": "string",
-      "default": "standalone",
-      "oneOf": [
-        {
-          "const": "standalone",
-          "title": "单节点"
-        },
-        {
-          "const": "high-availability",
-          "title": "高可用"
-        }
-      ]
-    },
-    "port": {
-      "title": "端口",
+    "replicaCount": {
+      "title": "副本数",
+      "description": ""当副本数大于1时，需要客户端使用一致性哈希算法来提高Memcached的可靠性。此外，客户端还需要负责处理副本故障和副本管理，以确保数据的完整性和可用性。",
       "type": "number",
-      "maximum": 65535,
-      "minimum": 1024,
-      "default": 11211
+      "default": 1,
+      "maximum": 10,
+      "minimum": 0
     },
     "usage": {
+      "title": "规格", 
       "type": "string",
       "oneOf": [
         {
@@ -57,47 +43,13 @@
         }
       ],
       "default": "50m/64Mi"
-    }
-  },
-  "dependencies": {
-    "architecture": {
-      "oneOf": [
-        {
-          "properties": {
-            "architecture": {
-              "title": "架构",
-              "type": "string",
-              "oneOf": [
-                {
-                  "const": "standalone",
-                  "title": "单节点"
-                }
-              ]
-            }
-          }
-        },
-        {
-          "properties": {
-            "architecture": {
-              "title": "架构",
-              "type": "string",
-              "oneOf": [
-                {
-                  "const": "high-availability",
-                  "title": "高可用"
-                }
-              ]
-            },
-            "replicaCount": {
-              "title": "副本数",
-              "type": "number",
-              "default": 1,
-              "maximum": 10,
-              "minimum": 0
-            }
-          }
-        }
-      ]
+    },
+    "port": {
+      "title": "端口",
+      "type": "number",
+      "maximum": 65535,
+      "minimum": 1024,
+      "default": 11211
     }
   }
 }

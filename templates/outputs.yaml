@@ -1,0 +1,4 @@
+{{ $values := .Values }}
+实例域名: 
+  description: 服务域名，仅支持集群内部访问。本地访问请连接hy vpn，并直接使用PodIP。
+  value: {{ range $i, $e := until (int $values.replicaCount) }}{{- if $i }},{{- end }}{{ include "common.names.fullname" $ }}-{{$i}}.{{ include "common.names.fullname" $ }}.svc.cluster.local{{- end -}}

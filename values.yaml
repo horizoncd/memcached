@@ -93,7 +93,7 @@ image:
   debug: false
 ## @param architecture Memcached architecture. Allowed values: standalone or high-availability
 ##
-architecture: standalone
+architecture: high-availability
 ## Authentication parameters
 ## ref: https://github.com/bitnami/containers/tree/main/bitnami/memcached#creating-the-memcached-admin-user
 ##
@@ -140,7 +140,7 @@ extraEnvVarsSecret: ""
 
 ## @param replicaCount Number of Memcached nodes
 ##
-replicaCount: 1
+replicaCount: 3
 ## @param containerPorts.memcached Memcached container port
 ##
 containerPorts:
@@ -710,16 +710,16 @@ metrics:
     ##
     jobLabel: ""
 
-# horizon:
-#   application: fdsafcxz
-#   clusterID: 61959
-#   cluster: "fdsafcxz-csx"
-#   template:
-#     name: memcached
-#     release: 5-04374415
-#   priority: ""
-# # architecture: standalone
-# # architecture: high-availability
-# # replicaCount: 1
-# port: 11213
-# usage: "50m/64Mi"
+    #horizon:
+    #  application: fdsafcxz
+    #  clusterID: 61959
+    #  cluster: "fdsafcxz-csx"
+    #  template:
+    #    name: memcached
+    #    release: 5-04374415
+    #  priority: ""
+    #  #architecture: standalone
+    #  #architecture: high-availability
+    #  #replicaCount: 1
+    #port: 11213
+    #usage: "50m/64Mi"
