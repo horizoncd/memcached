@@ -1,4 +1,4 @@
-{{ range $i, $element := until (int .Values.horizon.replicaCount) }}
+{{ range $i, $element := until (int .Values.replicaCount) }}
 实例-{{ $i }}:
   description: Headless域名，仅支持集群内部访问，直接解析到PodIP，不会经过Service。
   value: "{{ .Values.horizon.cluster }}-{{ $i }}.{{ .Values.horizon.cluster }}.{{ .Values.env.namespace }}.svc.cluster.local"

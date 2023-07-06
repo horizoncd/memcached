@@ -709,3 +709,16 @@ metrics:
     ## @param metrics.serviceMonitor.jobLabel The name of the label on the target service to use as the job name in prometheus.
     ##
     jobLabel: ""
+
+# horizon:
+#   application: fdsafcxz
+#   clusterID: 61959
+#   cluster: fdsafcxz-csx
+#   template:
+#     name: memcached
+#     release: 5-04374415
+#   priority: ""
+# # architecture: standalone
+# architecture: high-availability
+# port: 11211
+# usage: 50m/64Mi

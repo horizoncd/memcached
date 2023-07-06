@@ -19,7 +19,7 @@ metadata:
 spec:
   selector:
     matchLabels: {{- include "common.labels.matchLabels" . | nindent 6 }}
-  replicas: {{ default .Values.replicaCount .Values.replicaCount }}
+  replicas: {{ .Values.replicaCount }}
   {{- if .Values.podManagementPolicy }}
   podManagementPolicy: {{ .Values.podManagementPolicy | quote }}
   {{- end }}
@@ -195,8 +195,11 @@ spec:
           {{- end }}
           resources: 
             limits: 
-              cpu: {{- include "memcached.usage.cpu" -}}
-              memory: {{- include "memcached.usage.memory" -}}
+
+              cpu: {{ include "memcached.usage.cpu" . }}
+
+              memory: {{ include "memcached.usage.memory" .}}
+
           volumeMounts:
             {{- if .Values.persistence.enabled }}
             - name: data
