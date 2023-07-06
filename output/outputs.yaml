@@ -9,5 +9,5 @@
 {{ else }}
 实例域名: 
   description: 服务域名，仅支持集群内部访问。本地访问请连接hy vpn，并直接使用PodIP。
-  value: "{{ Values.horizon.cluster }}.{{ Values.env.namespace }}.svc.cluster.local"
+  value: "{{ .Values.horizon.cluster }}.{{ .Values.env.namespace }}.svc.cluster.local"
 {{ end }}
