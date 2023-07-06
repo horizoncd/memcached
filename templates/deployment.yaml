@@ -151,8 +151,10 @@ spec:
           {{- if .Values.lifecycleHooks }}
           lifecycle: {{- include "common.tplvalues.render" (dict "value" .Values.lifecycleHooks "context" $) | nindent 12 }}
           {{- end }}
-          {{- if .Values.resources }}
-          resources: {{- toYaml .Values.resources | nindent 12 }}
+          resources: 
+            limit: 
+              cpu: {{- include "memcached.usage.cpu" -}}
+              memory: {{- include "memcached.usage.memory" -}}
           {{- end }}
           volumeMounts:
             - name: tmp

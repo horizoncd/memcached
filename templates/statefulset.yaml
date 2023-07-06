@@ -194,7 +194,10 @@ spec:
                     sleep 60s
           {{- end }}
           {{- if .Values.resources }}
-          resources: {{- toYaml .Values.resources | nindent 12 }}
+          resources: 
+            limit: 
+              cpu: {{- include "memcached.usage.cpu" -}}
+              memory: {{- include "memcached.usage.memory" -}}
           {{- end }}
           volumeMounts:
             {{- if .Values.persistence.enabled }}
