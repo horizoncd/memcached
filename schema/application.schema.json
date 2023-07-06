@@ -7,7 +7,7 @@
   "properties": {
     "replicaCount": {
       "title": "副本数",
-      "description": ""当副本数大于1时，需要客户端使用一致性哈希算法来提高Memcached的可靠性。此外，客户端还需要负责处理副本故障和副本管理，以确保数据的完整性和可用性。",
+      "description": "当副本数大于1时，需要客户端使用一致性哈希算法来提高Memcached的可靠性。此外，客户端还需要负责处理副本故障和副本管理，以确保数据的完整性和可用性。",
       "type": "number",
       "default": 1,
       "maximum": 10,
