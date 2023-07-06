@@ -5,11 +5,11 @@ SPDX-License-Identifier: APACHE-2.0
 
 {{/* vim: set filetype=mustache: */}}
 
-# parse input in form of "xC/xGi"
+{{/* parse input in form of "xC/xGi" */}}
 {{- define  "memcached.usage.cpu" -}}
 {{ $usage := split "/" .Values.usage }}
 {{- if eq (len $usage) 2 -}}
-    {{ printf "%s" (index $usage 0) }}
+    {{ printf "%s" (index $usage "_0") }}
 {{- else -}}
     {{ printf "100m" }}
 {{- end -}}
@@ -18,7 +18,7 @@ SPDX-License-Identifier: APACHE-2.0
 {{- define  "memcached.usage.memory" -}}
 {{ $usage := split "/" .Values.usage }}
 {{- if eq (len $usage) 2 -}}
-    {{ printf "%s" (index $usage 1) }}
+    {{ printf "%s" (index $usage "_1") }}
 {{- else -}}
     {{ printf "128Mi" }}
 {{- end -}}

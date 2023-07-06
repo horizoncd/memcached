@@ -193,7 +193,6 @@ spec:
                     /usr/bin/pkill -10 memcached
                     sleep 60s
           {{- end }}
-          {{- if .Values.resources }}
           resources: 
             limit: 
               cpu: {{- include "memcached.usage.cpu" -}}
