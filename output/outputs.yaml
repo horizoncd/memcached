@@ -1,4 +1,4 @@
-{{ $count := until (int 2) }}
+{{ $count := until (int .Values.replicaCount) }}
 {{ $values := .Values }}
 {{ if eq .Values.architecture "high-availability" }}
 {{ range $count }}
