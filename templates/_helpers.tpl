@@ -7,7 +7,7 @@ SPDX-License-Identifier: APACHE-2.0
 
 # parse input in form of "xC/xGi"
 {{- define  "memcached.usage.cpu" -}}
-{{ $usage := split "/" .Values.app.usage }}
+{{ $usage := split "/" .Values.usage }}
 {{- if eq (len $usage) 2 -}}
     {{ printf "%s" (index $usage 0) }}
 {{- else -}}
@@ -16,7 +16,7 @@ SPDX-License-Identifier: APACHE-2.0
 {{- end -}}
 
 {{- define  "memcached.usage.memory" -}}
-{{ $usage := split "/" .Values.app.usage }}
+{{ $usage := split "/" .Values.usage }}
 {{- if eq (len $usage) 2 -}}
     {{ printf "%s" (index $usage 1) }}
 {{- else -}}

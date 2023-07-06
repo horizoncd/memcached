@@ -3,7 +3,7 @@ Copyright VMware, Inc.
 SPDX-License-Identifier: APACHE-2.0
 */}}
 
-{{- if eq (default .Values.app.architecture .Values.architecture) "standalone" }}
+{{- if eq (default .Values.architecture .Values.architecture) "standalone" }}
 apiVersion: {{ include "common.capabilities.deployment.apiVersion" . }}
 kind: Deployment
 metadata:
@@ -19,7 +19,7 @@ metadata:
 spec:
   selector:
     matchLabels: {{- include "common.labels.matchLabels" . | nindent 6 }}
-  replicas: {{ default .Values.app.replicaCount .Values.replicaCount }}
+  replicas: {{ default .Values.replicaCount .Values.replicaCount }}
   {{- if .Values.updateStrategy }}
   strategy: {{- toYaml .Values.updateStrategy | nindent 4 }}
   {{- end }}

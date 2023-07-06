@@ -41,7 +41,7 @@ spec:
   {{- end }}
   ports:
     - name: memcache
-      port: {{ default .Values.app.port .Values.service.ports.memcached }}
+      port: {{ default .Values.port .Values.service.ports.memcached }}
       targetPort: memcache
       {{- if and (or (eq .Values.service.type "NodePort") (eq .Values.service.type "LoadBalancer")) (not (empty .Values.service.nodePorts.memcached)) }}
       nodePort: {{ .Values.service.nodePorts.memcached }}
