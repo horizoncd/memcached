@@ -71,8 +71,8 @@ diagnosticMode:
 ## @param image.debug Specify if debug values should be set
 ##
 image:
-  registry: docker.io
-  repository: bitnami/memcached
+  registry: harbor.yf-online.service.163.org
+  repository: harbor.yf-online.service.163.org/cloudnative/library/bitnami/memcached
   tag: 1.6.21-debian-11-r4
   digest: ""
   ## Specify a imagePullPolicy
@@ -710,16 +710,19 @@ metrics:
     ##
     jobLabel: ""
 
-    #horizon:
-    #  application: fdsafcxz
-    #  clusterID: 61959
-    #  cluster: "fdsafcxz-csx"
-    #  template:
-    #    name: memcached
-    #    release: 5-04374415
-    #  priority: ""
-    #  #architecture: standalone
-    #  #architecture: high-availability
-    #  #replicaCount: 1
-    #port: 11213
-    #usage: "50m/64Mi"
+    # test data
+    #env:
+    #  namespace: "asdfa"
+  #horizon:
+  #  application: fdsafcxz
+  #  clusterID: 61959
+  #  cluster: "fdsafcxz-csx"
+  #  template:
+  #    name: memcached
+  #    release: 5-04374415
+  #  priority: ""
+  #  #architecture: standalone
+  #  #architecture: high-availability
+  #  #replicaCount: 1
+  #port: 11213
+  #usage: "50m/64Mi"
