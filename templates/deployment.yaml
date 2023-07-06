@@ -155,7 +155,6 @@ spec:
             limit: 
               cpu: {{- include "memcached.usage.cpu" -}}
               memory: {{- include "memcached.usage.memory" -}}
-          {{- end }}
           volumeMounts:
             - name: tmp
               mountPath: /tmp

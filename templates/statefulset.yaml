@@ -198,7 +198,6 @@ spec:
             limit: 
               cpu: {{- include "memcached.usage.cpu" -}}
               memory: {{- include "memcached.usage.memory" -}}
-          {{- end }}
           volumeMounts:
             {{- if .Values.persistence.enabled }}
             - name: data
