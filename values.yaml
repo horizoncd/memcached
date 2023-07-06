@@ -713,12 +713,13 @@ metrics:
 # horizon:
 #   application: fdsafcxz
 #   clusterID: 61959
-#   cluster: fdsafcxz-csx
+#   cluster: "fdsafcxz-csx"
 #   template:
 #     name: memcached
 #     release: 5-04374415
 #   priority: ""
 # # architecture: standalone
-# architecture: high-availability
+# # architecture: high-availability
+# # replicaCount: 1
 # port: 11211
-# usage: 50m/64Mi
+# usage: "50m/64Mi"
