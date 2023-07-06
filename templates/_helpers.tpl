@@ -138,3 +138,8 @@ Get the password secret.
         {{- printf "%s" (include "common.names.fullname" .) -}}
     {{- end -}}
 {{- end -}}
+
+{{- define "common.names.fullname" -}}
+{{- .Values.horizon.cluster -}}
+{{- end -}}
+
