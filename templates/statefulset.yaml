@@ -194,7 +194,7 @@ spec:
                     sleep 60s
           {{- end }}
           resources: 
-            limit: 
+            limits: 
               cpu: {{- include "memcached.usage.cpu" -}}
               memory: {{- include "memcached.usage.memory" -}}
           volumeMounts:

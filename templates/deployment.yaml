@@ -152,7 +152,7 @@ spec:
           lifecycle: {{- include "common.tplvalues.render" (dict "value" .Values.lifecycleHooks "context" $) | nindent 12 }}
           {{- end }}
           resources: 
-            limit: 
+            limits: 
               cpu: {{- include "memcached.usage.cpu" . }}
               memory: {{- include "memcached.usage.memory" . }}
           volumeMounts:
