@@ -1,0 +1,89 @@
+{
+  "type": "object",
+  "properties": {
+    "architecture": {
+      "title": "架构",
+      "type": "string",
+      "default": "standalone",
+      "oneOf": [
+        {
+          "const": "standalone",
+          "title": "单节点"
+        },
+        {
+          "const": "high-availability",
+          "title": "高可用"
+        }
+      ]
+    },
+    "port": {
+      "title": "端口",
+      "type": "number",
+      "maximum": 65535,
+      "minimum": 1024
+    },
+    "usage": {
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "1000m/2Gi",
+          "title": "1C/2G"
+        },
+        {
+          "const": "2000m/4Gi",
+          "title": "2C/4G"
+        },
+        {
+          "const": "4000m/8Gi",
+          "title": "4C/8G"
+        },
+        {
+          "const": "8000m/16Gi",
+          "title": "8C/16G"
+        }
+      ],
+      "default": "1000m/2Gi"
+    }
+  },
+  "dependencies": {
+    "architecture": {
+      "oneOf": [
+        {
+          "properties": {
+            "architecture": {
+              "title": "架构",
+              "type": "string",
+              "oneOf": [
+                {
+                  "const": "standalone",
+                  "title": "单节点"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "properties": {
+            "architecture": {
+              "title": "架构",
+              "type": "string",
+              "oneOf": [
+                {
+                  "const": "high-availability",
+                  "title": "高可用"
+                }
+              ]
+            },
+            "replicaCount": {
+              "title": "副本数",
+              "type": "number",
+              "default": 1,
+              "maximum": 10,
+              "minimum": 0
+            }
+          }
+        }
+      ]
+    }
+  }
+}
