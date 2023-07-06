@@ -32,23 +32,31 @@
       "type": "string",
       "oneOf": [
         {
+          "const": "50m/64Mi",
+          "title": "64M(memory 64M, cpu 50m)"
+        },
+        {
+          "const": "1000m/1Gi",
+          "title": "1G(memory 1024M, cpu 1000m)"
+        },
+        {
           "const": "1000m/2Gi",
-          "title": "1C/2G"
+          "title": "2G(memory 2048M, cpu 1000m)"
         },
         {
-          "const": "2000m/4Gi",
-          "title": "2C/4G"
+          "const": "1000m/4Gi",
+          "title": "4G(memory 4096M, cpu 1000m)"
         },
         {
-          "const": "4000m/8Gi",
-          "title": "4C/8G"
+          "const": "1000m/8Gi",
+          "title": "8G(memory 8192M, cpu 1000m)"
         },
         {
-          "const": "8000m/16Gi",
-          "title": "8C/16G"
+          "const": "2000m/16Gi",
+          "title": "16G(memory 16384M, cpu 2000m)"
         }
       ],
-      "default": "1000m/2Gi"
+      "default": "50m/64Mi"
     }
   },
   "dependencies": {
