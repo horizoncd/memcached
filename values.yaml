@@ -72,7 +72,7 @@ diagnosticMode:
 ##
 image:
   registry: harbor.yf-online.service.163.org
-  repository: harbor.yf-online.service.163.org/cloudnative/library/bitnami/memcached
+  repository: cloudnative/library/bitnami/memcached
   tag: 1.6.21-debian-11-r4
   digest: ""
   ## Specify a imagePullPolicy
