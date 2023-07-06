@@ -721,5 +721,5 @@ metrics:
 # # architecture: standalone
 # # architecture: high-availability
 # # replicaCount: 1
-# port: 11211
+# port: 11213
 # usage: "50m/64Mi"
